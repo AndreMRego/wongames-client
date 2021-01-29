@@ -5,7 +5,7 @@ import Heading, { HeadingProps } from '.';
 export default {
   title: 'Heading',
   component: Heading,
-  args: {
+  argTypes: {
     children: {
       type: 'string',
     },
