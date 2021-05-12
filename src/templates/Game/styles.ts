@@ -28,7 +28,7 @@ export const Cover = styled.div<CoverProps>`
 
     ${media.greaterThan('medium')`
       height: 70rem;
-      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85%);
+      clip-path: polygon(0 0,100% 0,100% 100%,0 85%);
     `}
   `}
 `;
