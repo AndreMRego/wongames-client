@@ -9,7 +9,7 @@ const Index = (props: HomeTemplateProps) => {
 
 export default Index;
 
-export function getServerSideProps() {
+export async function getServerSideProps() {
   return {
     props: {
       banners: bannersMock,
