@@ -1,5 +1,5 @@
 export default {
   title: 'Population Zero',
   description: 'Rockstar Games',
-  price: '235,00',
+  price: 235,
 };
