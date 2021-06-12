@@ -9,7 +9,7 @@ const props = {
   slug: '/population-zero',
   developer: 'Rockstar Games',
   img: '/img/red-dead-img.jpg',
-  price: 'R$ 235,00',
+  price: 235,
 };
 
 describe('<GameCard />', () => {
@@ -35,13 +35,13 @@ describe('<GameCard />', () => {
 
     expect(screen.getByLabelText(/Add to Wishlist/i)).toBeInTheDocument();
 
-    expect(screen.getByText(props.price)).toBeInTheDocument();
+    expect(screen.getByText('$235.00')).toBeInTheDocument();
   });
 
   it('should render price in label', () => {
     renderWithTheme(<GameCard {...props} />);
 
-    const price = screen.getByText(props.price);
+    const price = screen.getByText('$235.00');
 
     expect(price).not.toHaveStyle({
       'text-decoration': 'line-through',
@@ -53,11 +53,11 @@ describe('<GameCard />', () => {
   });
 
   it('should render a line-through in price when promotional', () => {
-    renderWithTheme(<GameCard {...props} promotionalPrice="R$ 220,00" />);
+    renderWithTheme(<GameCard {...props} promotionalPrice={220} />);
 
-    const oldPrice = screen.getByText(props.price);
+    const oldPrice = screen.getByText('$235.00');
 
-    const promotionalPrice = screen.getByText('R$ 220,00');
+    const promotionalPrice = screen.getByText('$220.00');
 
     expect(oldPrice).toHaveStyle({
       'text-decoration': 'line-through',
