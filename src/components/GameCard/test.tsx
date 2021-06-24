@@ -105,4 +105,12 @@ describe('<GameCard />', () => {
       fontSize: '1.2rem',
     });
   });
+
+  it('should render price with free label', () => {
+    renderWithTheme(<GameCard {...props} price={0} />);
+
+    const price = screen.queryByText(/free/i);
+
+    expect(price).toBeInTheDocument();
+  });
 });
