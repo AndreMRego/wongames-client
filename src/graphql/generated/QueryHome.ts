@@ -108,7 +108,7 @@ export interface QueryHome_sections_newGames_highlight {
   title: string;
   subtitle: string;
   background: QueryHome_sections_newGames_highlight_background | null;
-  floatImage: QueryHome_sections_newGames_highlight_floatImage[];
+  floatImage: QueryHome_sections_newGames_highlight_floatImage | null;
   buttonLabel: string;
   buttonLink: string;
   alignment: ENUM_COMPONENTPAGEHIGHLIGHT_ALIGNMENT | null;
@@ -135,7 +135,7 @@ export interface QueryHome_sections_popularGames_highlight {
   title: string;
   subtitle: string;
   background: QueryHome_sections_popularGames_highlight_background | null;
-  floatImage: QueryHome_sections_popularGames_highlight_floatImage[];
+  floatImage: QueryHome_sections_popularGames_highlight_floatImage | null;
   buttonLabel: string;
   buttonLink: string;
   alignment: ENUM_COMPONENTPAGEHIGHLIGHT_ALIGNMENT | null;
@@ -182,7 +182,7 @@ export interface QueryHome_sections_upcommingGames_highlight {
   title: string;
   subtitle: string;
   background: QueryHome_sections_upcommingGames_highlight_background | null;
-  floatImage: QueryHome_sections_upcommingGames_highlight_floatImage[];
+  floatImage: QueryHome_sections_upcommingGames_highlight_floatImage | null;
   buttonLabel: string;
   buttonLink: string;
   alignment: ENUM_COMPONENTPAGEHIGHLIGHT_ALIGNMENT | null;
@@ -209,7 +209,7 @@ export interface QueryHome_sections_freeGames_highlight {
   title: string;
   subtitle: string;
   background: QueryHome_sections_freeGames_highlight_background | null;
-  floatImage: QueryHome_sections_freeGames_highlight_floatImage[];
+  floatImage: QueryHome_sections_freeGames_highlight_floatImage | null;
   buttonLabel: string;
   buttonLink: string;
   alignment: ENUM_COMPONENTPAGEHIGHLIGHT_ALIGNMENT | null;
