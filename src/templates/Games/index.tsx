@@ -1,11 +1,13 @@
+import { useQueryGames } from 'graphql/queries/games';
+
 import Base from 'templates/Base';
 import { KeyboardArrowDown as ArrowDown } from '@styled-icons/material-outlined/KeyboardArrowDown';
 
 import ExploreSidebar, { ItemProps } from 'components/ExploreSidebar';
 import GameCard, { GameCardProps } from 'components/GameCard';
 import { Grid } from 'components/Grid';
+
 import * as S from './styles';
-import { useQueryGames } from 'graphql/queries/games';
 
 export type GamesTemplateProps = {
   games?: GameCardProps[];
@@ -18,8 +20,6 @@ const GamesTemplate = ({ filterItems }: GamesTemplateProps) => {
       limit: 15,
     },
   });
-
-  console.log(data);
 
   const handleFilter = () => {
     return;
