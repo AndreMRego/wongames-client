@@ -4,6 +4,7 @@ import { render, screen, fireEvent } from 'utils/test-utils';
 import GameCard from '.';
 
 const props = {
+  id: '1',
   title: 'Population Zero',
   slug: '/population-zero',
   developer: 'Rockstar Games',
