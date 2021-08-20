@@ -22,10 +22,9 @@ describe('<ProfileMenu />', () => {
       '/profile/orders',
     );
 
-    expect(screen.getByRole('link', { name: /sign out/i })).toHaveAttribute(
-      'href',
-      '/logout',
-    );
+    expect(
+      screen.getByRole('button', { name: /sign out/i }),
+    ).toBeInTheDocument();
 
     expect(container.firstChild).toMatchSnapshot();
   });
