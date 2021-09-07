@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 import {
   CheckCircleOutline,
   Email,
@@ -17,14 +18,14 @@ import TextField from 'components/TextField';
 import { FieldErrors, forgotValidate } from 'utils/validations';
 
 const FormForgotPassword = () => {
+  const { query } = useRouter();
   const [success, setSuccess] = useState(false);
   const [formError, setFormError] = useState('');
   const [fieldError, setFieldError] = useState<FieldErrors>({});
   const [values, setValues] = useState({
-    email: '',
+    email: (query.email as string) || '',
   });
   const [loading, setLoading] = useState(false);
-
   const handleInput = (field: string, value: string) => {
     setValues((s) => ({ ...s, [field]: value }));
   };
@@ -86,6 +87,7 @@ const FormForgotPassword = () => {
               placeholder="Email"
               type="text"
               error={fieldError?.email}
+              initialValue={query.email as string}
               icon={<Email />}
               onInputChange={(v) => handleInput('email', v)}
             />
