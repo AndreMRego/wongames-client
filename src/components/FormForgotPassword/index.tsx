@@ -63,7 +63,6 @@ const FormForgotPassword = () => {
       setFormError(data.message[0].messages[0].message);
     } else {
       setSuccess(true);
-      console.log('success', data);
     }
   };
 
