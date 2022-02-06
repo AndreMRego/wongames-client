@@ -1,4 +1,4 @@
-import { render, screen } from 'utils/test-utils';
+import { render, screen, waitFor } from 'utils/test-utils';
 import { WishlistContextDefaultValues } from 'hooks/use-wishlist';
 
 import WishlistButton from '.';
@@ -108,7 +108,7 @@ describe('<WishlistButton />', () => {
     ).not.toBeInTheDocument();
   });
 
-  it('should add to wishlist', () => {
+  it('should add to wishlist', async () => {
     const wishlistProviderProps = {
       ...WishlistContextDefaultValues,
       isInWishlist: () => false,
@@ -123,10 +123,12 @@ describe('<WishlistButton />', () => {
       userEvent.click(screen.getByText(/add to wishlist/i));
     });
 
-    expect(wishlistProviderProps.addToWishlist).toHaveBeenCalledWith('1');
+    await waitFor(() => {
+      expect(wishlistProviderProps.addToWishlist).toHaveBeenCalledWith('1');
+    });
   });
 
-  it('should remove from wishlist', () => {
+  it('should remove from wishlist', async () => {
     const wishlistProviderProps = {
       ...WishlistContextDefaultValues,
       isInWishlist: () => true,
@@ -141,6 +143,10 @@ describe('<WishlistButton />', () => {
       userEvent.click(screen.getByText(/remove from wishlist/i));
     });
 
-    expect(wishlistProviderProps.removeFromWishlist).toHaveBeenCalledWith('1');
+    await waitFor(() => {
+      expect(wishlistProviderProps.removeFromWishlist).toHaveBeenCalledWith(
+        '1',
+      );
+    });
   });
 });
