@@ -49,7 +49,9 @@ const WishlistProvider = ({ children }: WishlistProviderProps) => {
     setWishlistItems(data?.wishlists[0]?.games || []);
   }, [data]);
 
-  const isInWishlist = (id: string) => false;
+  const isInWishlist = (id: string) => {
+    return !!wishlistItems.find((game) => game.id === id);
+  };
 
   const addToWishlist = (id: string) => {
     return null;
