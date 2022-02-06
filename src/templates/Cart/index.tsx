@@ -35,7 +35,12 @@ const Cart = ({
         <S.Content>
           <CartList />
 
-          <Elements stripe={stripe}>
+          <Elements
+            options={{
+              locale: 'en',
+            }}
+            stripe={stripe}
+          >
             <PaymentForm />
           </Elements>
         </S.Content>
