@@ -50,8 +50,6 @@ const PaymentForm = ({ session }: PaymentFormProps) => {
     setPaymentMode();
   }, [items, session]);
 
-  console.log(clientSecret);
-
   const handleChange = async (event: StripeCardElementChangeEvent) => {
     setDisabled(event.empty);
     setError(event.error ? event.error.message : '');
@@ -64,17 +62,22 @@ const PaymentForm = ({ session }: PaymentFormProps) => {
           Payment
         </Heading>
 
-        <CardElement
-          options={{
-            hidePostalCode: true,
-            style: {
-              base: {
-                fontSize: '16px',
+        {freeGames ? (
+          <S.FreeGames>Only free games, click buy and enjoy!</S.FreeGames>
+        ) : (
+          <CardElement
+            options={{
+              hidePostalCode: true,
+              style: {
+                base: {
+                  fontSize: '16px',
+                },
               },
-            },
-          }}
-          onChange={handleChange}
-        />
+            }}
+            onChange={handleChange}
+          />
+        )}
+
         {error && (
           <S.Error>
             <ErrorOutline size={20} />
@@ -89,7 +92,7 @@ const PaymentForm = ({ session }: PaymentFormProps) => {
         <Button
           fullWidth
           icon={<ShoppingCart />}
-          disabled={disabled || !!error}
+          disabled={!freeGames && (disabled || !!error)}
         >
           Buy now
         </Button>
