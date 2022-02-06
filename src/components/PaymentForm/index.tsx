@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Session } from 'next-auth';
+import { useRouter } from 'next/router';
 import { ErrorOutline, ShoppingCart } from '@styled-icons/material-outlined';
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import { StripeCardElementChangeEvent } from '@stripe/stripe-js';
@@ -16,6 +17,8 @@ type PaymentFormProps = {
 
 const PaymentForm = ({ session }: PaymentFormProps) => {
   const { items } = useCart();
+  const { push } = useRouter();
+
   const stripe = useStripe();
   const elements = useElements();
 
@@ -69,6 +72,13 @@ const PaymentForm = ({ session }: PaymentFormProps) => {
     // salva no banco
     // redireciona para success
 
+    if (freeGames) {
+      // salva no banco
+      // redireciona para success
+      push('/success');
+      return;
+    }
+
     const payload = await stripe!.confirmCardPayment(clientSecret, {
       payment_method: {
         card: elements!.getElement(CardElement)!,
@@ -84,6 +94,7 @@ const PaymentForm = ({ session }: PaymentFormProps) => {
 
       // salvar a compra no banco do Strapi
       // redirectionar para a página de Sucesso
+      push('/success');
     }
   };
 
