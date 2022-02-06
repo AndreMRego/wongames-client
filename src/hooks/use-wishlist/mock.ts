@@ -11,6 +11,7 @@ const gameMock = (id: string) => ({
   },
   __typename: 'Game',
 });
+
 export const wishlistMock = {
   request: {
     query: QUERY_WISHLIST,
@@ -20,7 +21,7 @@ export const wishlistMock = {
       },
     },
     variables: {
-      identifier: 'teste@email.com',
+      identifier: 'lorem@ipsum.com',
     },
   },
   result: {
@@ -38,8 +39,8 @@ export const wishlistMock = {
 export const wishlistItems = [
   {
     id: '1',
-    title: 'Sample Game',
-    slug: 'sample-game',
+    title: 'Sample Game 1',
+    slug: 'sample-game-1',
     developer: 'sample developer',
     img: 'http://localhost:1337/sample-game.jpg',
     price: 10.5,
