@@ -13,7 +13,7 @@ import theme from 'styles/theme';
 import { useApollo } from 'utils/apollo';
 
 function App({ Component, pageProps }: AppProps) {
-  const client = useApollo(pageProps.initialApolloState);
+  const client = useApollo(pageProps.initialApolloState, null);
 
   return (
     <AuthProvider session={pageProps.session}>
