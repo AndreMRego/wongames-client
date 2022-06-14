@@ -29,6 +29,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     variables: {
       identifier: session?.id as string,
     },
+    fetchPolicy: 'no-cache',
   });
 
   return {
