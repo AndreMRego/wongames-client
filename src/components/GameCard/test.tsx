@@ -16,7 +16,7 @@ const props = {
 
 describe('<GameCard />', () => {
   it('should render correctly', () => {
-    render(<GameCard {...props} />);
+    const { container } = render(<GameCard {...props} />);
 
     expect(
       screen.getByRole('heading', { name: props.title }),
@@ -37,7 +37,7 @@ describe('<GameCard />', () => {
 
     expect(screen.getByLabelText(/Add to Wishlist/i)).toBeInTheDocument();
 
-    expect(screen.getByText('$235.00')).toBeInTheDocument();
+    expect(container.firstChild).toMatchSnapshot();
   });
 
   it('should render price in label', () => {
