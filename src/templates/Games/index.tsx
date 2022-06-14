@@ -14,6 +14,7 @@ import ExploreSidebar, { ItemProps } from 'components/ExploreSidebar';
 import GameCard from 'components/GameCard';
 import { Grid } from 'components/Grid';
 import Empty from 'components/Empty';
+import { getImageUrl } from 'utils/getImageUrl';
 
 import * as S from './styles';
 
@@ -82,7 +83,7 @@ const GamesTemplate = ({ filterItems }: GamesTemplateProps) => {
                     title={game.name}
                     slug={game.slug}
                     developer={game.developers[0].name}
-                    img={`http://localhost:1337${game.cover!.url}`}
+                    img={`${getImageUrl(game.cover!.url)}`}
                     price={game.price}
                   />
                 ))}
