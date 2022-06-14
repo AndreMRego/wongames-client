@@ -16,7 +16,7 @@ export type HomeTemplateProps = {
   mostPopularHighlight: HighlightProps;
   mostPopularGamesTitle: string;
   mostPopularGames: GameCardProps[];
-  upcomingGamesTitle: string;
+  upcomingGamesTitle?: string;
   upcomingGames: GameCardProps[];
   upcomingHighlight: HighlightProps;
   freeGamesTitle: string;
@@ -54,12 +54,13 @@ const Home = ({
       highlight={mostPopularHighlight}
       games={mostPopularGames}
     />
-
-    <Showcase
-      title={upcomingGamesTitle}
-      highlight={upcomingHighlight}
-      games={upcomingGames}
-    />
+    {upcomingGames?.length && (
+      <Showcase
+        title={upcomingGamesTitle}
+        highlight={upcomingHighlight}
+        games={upcomingGames}
+      />
+    )}
 
     <Showcase
       title={freeGamesTitle}
