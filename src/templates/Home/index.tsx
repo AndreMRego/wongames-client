@@ -54,13 +54,12 @@ const Home = ({
       highlight={mostPopularHighlight}
       games={mostPopularGames}
     />
-    {upcomingGames?.length && (
-      <Showcase
-        title={upcomingGamesTitle}
-        highlight={upcomingHighlight}
-        games={upcomingGames}
-      />
-    )}
+
+    <Showcase
+      title={upcomingGamesTitle}
+      highlight={upcomingHighlight}
+      games={upcomingGames}
+    />
 
     <Showcase
       title={freeGamesTitle}

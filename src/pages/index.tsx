@@ -1,5 +1,4 @@
 import Home, { HomeTemplateProps } from 'templates/Home';
-import gamesMock from 'components/GameCardSlider/mock';
 import { initializeApollo } from 'utils/apollo';
 import { QueryHome, QueryHomeVariables } from 'graphql/generated/QueryHome';
 import { QUERY_HOME } from 'graphql/queries/home';
@@ -34,12 +33,9 @@ export async function getStaticProps() {
       mostPopularHighlight: highlightMapper(sections?.popularGames?.highlight),
       mostPopularGamesTitle: sections?.popularGames?.title,
       mostPopularGames: gamesMapper(sections?.popularGames?.games),
-      ...(!!sections?.upcommingGames?.title && {
-        upcomingGamesTitle: sections?.upcommingGames?.title,
-      }),
-      upcommingGames: gamesMapper(upcomingGames),
-      upcommingHighlight: highlightMapper(sections?.upcommingGames?.highlight),
-      upcommingMoreGames: gamesMock,
+      upcomingGamesTitle: sections?.upcommingGames?.title,
+      upcomingGames: gamesMapper(upcomingGames),
+      upcomingHighlight: highlightMapper(sections?.upcommingGames?.highlight),
       freeGamesTitle: sections?.freeGames?.title,
       freeGames: gamesMapper(freeGames),
       freeHighlight: highlightMapper(sections?.freeGames?.highlight),
