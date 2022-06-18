@@ -3,6 +3,11 @@
 // load type definitions that come with Cypress module
 /// <reference types="cypress" />
 
+type ShowcaseAttributes = {
+  name: string;
+  highlight?: boolean;
+  hasGames?: boolean;
+}
 declare namespace Cypress {
   interface Chainable {
     /**
@@ -11,10 +16,16 @@ declare namespace Cypress {
      */
     google(): Chainable<AUTWindow>;
 
-     /**
+    /**
      * Custom command to check banner in page
      * @example cy.shouldRenderBanner()
      */
-      shouldRenderBanner(): Chainable<Element>;
+    shouldRenderBanner(): Chainable<Element>;
+
+    /**
+     * Custom command to check showcase in page
+     * @example cy.shouldRenderBanner()
+     */
+    shouldRenderShowcase(attrs: ShowcaseAttributes): Chainable<Element>;
   }
 }

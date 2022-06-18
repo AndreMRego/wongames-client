@@ -21,4 +21,21 @@ Cypress.Commands.add('shouldRenderBanner', () => {
 
     cy.findByRole('heading', { name: /huge promotion!/i })
     cy.findByRole('link', { name: /browse all games/i })
-  })})
+  })
+})
+
+Cypress.Commands.add('shouldRenderShowcase', ({ name, highlight = false, hasGames = false }) => {
+  cy.get(`[data-cy="${name}"]`).within(() => {
+    cy.findByRole('heading', { name }).should('exist');
+
+    cy.get(`[data-cy="highlight"]`).should(highlight ? 'exist' : 'not.exist')
+
+    if (highlight) {
+      cy.get(`[data-cy="highlight"]`).within(() => {
+        cy.findByRole('link').should('have.attr', 'href')
+      })
+    }
+
+    cy.get(`[data-cy="gamecard"]`).should( hasGames ? 'have.length.gt' : 'have.length', 0)
+  })
+})

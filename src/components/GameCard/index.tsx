@@ -34,7 +34,7 @@ const GameCard = ({
   ribbonColor = 'primary',
   ribbonSize = 'small',
 }: GameCardProps) => (
-  <S.Wrapper>
+  <S.Wrapper data-cy="gamecard">
     <Link href={`game/${slug}`} passHref>
       <S.ImageBox>
         <Image src={img} alt={title} layout="fill" objectFit="cover" />
