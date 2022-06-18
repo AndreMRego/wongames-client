@@ -38,7 +38,12 @@ describe('Explore Page', () => {
     cy.location('href').should('contain', 'sort=price%3Adesc')
 
     cy.getByDataCy('gamecard').first().within(() => {
-      cy.findByText('$4.79').should('not.exist')
+      cy
+      .findByText(/^\$\d+(\.\d{1,2})?/)
+      .invoke('text') //convert element to text
+      .then($el => $el.replace('$', ''))
+      .then(parseFloat) //convert to float
+      .should('be.gt', 0)
     })
   });
 });
