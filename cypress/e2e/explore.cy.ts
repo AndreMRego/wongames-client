@@ -25,4 +25,20 @@ describe('Explore Page', () => {
     cy.findByRole('button', { name: /show more/i }).click()
     cy.getByDataCy('gamecard').should('have.length', 30)
   });
+
+  it('should order by price', () => {
+    cy.findByText(/lowest to highest/i).click()
+    cy.location('href').should('contain', 'sort=price%3Aasc')
+
+    cy.getByDataCy('gamecard').first().within(() => {
+      cy.findByText('$4.79').should('exist')
+    })
+
+    cy.findByText(/highest to lowest/i).click()
+    cy.location('href').should('contain', 'sort=price%3Adesc')
+
+    cy.getByDataCy('gamecard').first().within(() => {
+      cy.findByText('$4.79').should('not.exist')
+    })
+  });
 });
