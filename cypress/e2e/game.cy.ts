@@ -46,6 +46,7 @@ describe('Game Page', () => {
   });
 
   it('should add/remove game in cart', () => {
+     // add to cart
     cy.getByDataCy('game-info').within(() => {
       cy.findByRole('button', { name: /add to cart/i }).click()
       cy.findByRole('button', { name: /remove from cart/i }).should('exist')
@@ -53,11 +54,21 @@ describe('Game Page', () => {
 
     cy.findAllByLabelText(/cart items/i)
       .first()
-      .should('have.length', 1)
+      .contains(1)
       .click()
 
     cy.getByDataCy('cart-list').within(() => {
       cy.findByRole('heading', { name: /cyberpunk 2077/i }).should('exist')
+    })
+
+     // close dropdown
+    cy.findAllByLabelText(/cart items/i)
+     .first()
+     .click()
+
+    cy.getByDataCy('game-info').within(() => {
+      cy.findByRole('button', { name: /remove from cart/i }).click()
+      cy.findByRole('button', { name: /add to cart/i }).should('exist')
     })
   });
 });
