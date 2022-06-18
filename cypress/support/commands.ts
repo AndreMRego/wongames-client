@@ -43,3 +43,9 @@ Cypress.Commands.add('shouldRenderShowcase', ({ name, highlight = false, hasGame
     cy.getByDataCy("gamecard").should( hasGames ? 'have.length.gt' : 'have.length', 0)
   })
 })
+
+Cypress.Commands.add('getFields', (fields) => {
+  fields.map(({ label }) => {
+    cy.findByText(label).should('exist')
+  })
+})
