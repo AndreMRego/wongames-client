@@ -71,6 +71,7 @@
     "babel-plugin-styled-components": "^1.11.1",
     "cross-env": "^7.0.2",
     "cypress": "^10.1.0",
+    "cypress-plugin-stripe-elements": "^1.0.2",
     "eslint": "^7.8.1",
     "eslint-config-next": "^11.0.1",
     "eslint-config-prettier": "^6.15.0",
