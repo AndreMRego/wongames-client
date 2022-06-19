@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "eslint src --max-warnings=0",
     "typecheck": "tsc --project tsconfig.json --noEmit",
-    "test": "jest --maxWorkers=50%",
+    "test": "jest --maxWorkers=25%",
     "test:watch": "yarn test --watch",
     "test:ci": "yarn test --runInBand",
     "cy:open": "cypress open",
