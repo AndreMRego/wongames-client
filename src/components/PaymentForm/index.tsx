@@ -112,7 +112,7 @@ const PaymentForm = ({ session }: PaymentFormProps) => {
   };
 
   return (
-    <S.Wrapper>
+    <S.Wrapper data-cy="payment-form">
       <form onSubmit={handleSubmit}>
         <S.Body>
           <Heading color="black" lineBottom size="small">
