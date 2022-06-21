@@ -24,7 +24,9 @@ const Showcase = ({
         {title}
       </Heading>
     )}
-    {!!highlight && <Highlight {...highlight} />}
+    {!!highlight && Object.keys(highlight).length && (
+      <Highlight {...highlight} />
+    )}
     {!!games && <GameCardSlider items={games} color={color} />}
   </S.Wrapper>
 );
