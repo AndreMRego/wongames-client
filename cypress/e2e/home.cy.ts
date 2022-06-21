@@ -23,13 +23,13 @@ describe('Home Page', () => {
     cy.shouldRenderShowcase({
       name: 'Upcoming Games',
       highlight: true,
-      hasGames: false
+      hasGames: true
     });
 
     cy.shouldRenderShowcase({
       name: 'Free Games',
       highlight: true,
-      hasGames: false
+      hasGames: true
     });
   });
 });

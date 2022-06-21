@@ -9,7 +9,7 @@ describe('Game Page', () => {
     cy.getByDataCy('game-info').within(() => {
       cy.findByRole('heading', { name: /cyberpunk 2077/i }).should('exist')
       cy.findByText(/^This game is part of your Welcome Offer/i).should('exist')
-      cy.findByText('$99.99').should('exist')
+      cy.findByText('$29.99').should('exist')
       cy.findByRole('button', { name: /add to cart/i }).should('exist')
     })
 
@@ -41,7 +41,7 @@ describe('Game Page', () => {
       cy.findByText('Role-playing / Action / Sci-fi').should('exist')
     })
 
-    cy.shouldRenderShowcase({ name: "Upcoming Games", highlight: true})
+    cy.shouldRenderShowcase({ name: "Upcoming Games", highlight: true, hasGames: true})
     cy.shouldRenderShowcase({ name: "You may like these games", highlight: false, hasGames: true})
   });
 
